@@ -12,6 +12,7 @@ class HeroesTableViewController: UITableViewController {
     var heroes: [Hero] = []
     
     override func viewDidLoad() {
+        title = "Héroes"
         super.viewDidLoad()
         fetchHeroesList()
         tableView.register(
