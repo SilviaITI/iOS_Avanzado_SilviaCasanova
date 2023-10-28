@@ -19,6 +19,15 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <viewLayoutGuide key="safeArea" id="vLr-E1-eTs"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <tabBar key="tableHeaderView" contentMode="scaleToFill" id="pQd-hL-dK3">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <items>
+                    <tabBarItem image="rectangle.portrait.and.arrow.right" catalog="system" id="Iv0-1r-eSY"/>
+                    <tabBarItem image="map" catalog="system" id="44e-WA-u8C"/>
+                </items>
+            </tabBar>
             <connections>
                 <outlet property="dataSource" destination="-1" id="Tng-2m-Rnh"/>
                 <outlet property="delegate" destination="-1" id="9aC-8N-iBw"/>
@@ -27,6 +36,8 @@
         </tableView>
     </objects>
     <resources>
+        <image name="map" catalog="system" width="128" height="112"/>
+        <image name="rectangle.portrait.and.arrow.right" catalog="system" width="128" height="109"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

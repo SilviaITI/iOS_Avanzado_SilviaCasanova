@@ -16,7 +16,7 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
     }
     
     func  fetchHeroesList() {
-      
+        
         ApiProvider.shared.getHeroes { result in
             switch result {
             case let .success(heroes):
@@ -28,16 +28,17 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
             case let .failure(error):
                 print("Error: \(error)")
             }
-           
+            
         }
         
     }
     func heroBy(index: Int) -> Hero? {
         if index >= 0 && index < heroesCount {
-           return heroes[index]
+            return heroes[index]
         } else {
-           return nil
+            return nil
         }
     }
+    
 }
 

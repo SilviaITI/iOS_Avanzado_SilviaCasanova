@@ -6,13 +6,13 @@
 //
 
 import Foundation
-
+typealias HeroLocations = [Location] 
 struct Location: Codable {
     
-    let id: UUID
-    let latitud: String?
-    let longitud: String?
-    let dataShow: String?
-    let hero: Hero?
+    let id: String
+    let latitud: String
+    let longitud: String
+    let dataShow: String
+    let hero: Hero
     
 }

@@ -37,18 +37,18 @@ class HeroesTableViewController: UITableViewController {
     // MARK: - Table view data source
     func setObservers() {
         viewModel.viewState = { [weak self] state in
-                    DispatchQueue.main.async {
-                        switch state {
-                        case .reloadData:
-                            self?.reloadData()
-                            
-                        case .navigateToDetail:
-                            self?.navigateToDetail()
-                        }
-                    }
+            DispatchQueue.main.async {
+                switch state {
+                case .reloadData:
+                    self?.reloadData()
+                    
+                case .navigateToDetail:
+                    self?.navigateToDetail()
                 }
+            }
+        }
     }
- 
+    
     func reloadData() {
         self.tableView.reloadData()
     }
@@ -77,16 +77,30 @@ class HeroesTableViewController: UITableViewController {
             return UITableViewCell()
         }
         if let hero = viewModel.heroBy(index: indexPath.row) {
-                  cell.updateData(with: hero)
-                  
-              }
-        return cell
+            cell.updateData(with: hero)
+            
         }
-       
+        return cell
     }
     
+    override func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) { // para presentar la
+             let hero = viewModel.heroBy(index: indexPath.row)
+                let detailViewController = DetailViewController()
+                detailViewController.hero = hero
+                navigationController?.show(detailViewController, sender: nil)
+                tableView.deselectRow(at: indexPath, animated: true)
+                
+                
+            }
+            
+            
+        
     
     
-
-
     
+    
+    
+    
+}
