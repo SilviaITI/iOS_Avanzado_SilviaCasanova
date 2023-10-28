@@ -16,7 +16,7 @@ class HeroesTableViewController: UITableViewController {
         fetchHeroesList()
         tableView.register(
             UINib(nibName: "Cell", bundle: nil),
-            forCellReuseIdentifier: "Cell"
+            forCellReuseIdentifier: Cell.identifier
         )
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -27,16 +27,7 @@ class HeroesTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return heroes.count
-    }
-
+    
     func  fetchHeroesList() {
       
         ApiProvider.shared.getHeroes { result in
@@ -54,6 +45,19 @@ class HeroesTableViewController: UITableViewController {
         }
         
     }
+   override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+          Cell.estimatedHeight
+      }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return heroes.count
+    }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: "Cell",
@@ -61,10 +65,10 @@ class HeroesTableViewController: UITableViewController {
                 as? Cell else {
             return UITableViewCell()
         }
-        let hero = heroes[indexPath.row]
-        cell.updateData(with: hero)
-        return cell
-        
+        if (indexPath.row < heroes.count) {
+            cell.updateData(with: heroes[indexPath.row])
+        }
+       return cell
     }
     }
     
@@ -85,7 +89,7 @@ class HeroesTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
     */
 
@@ -114,4 +118,3 @@ class HeroesTableViewController: UITableViewController {
     }
     */
     
-

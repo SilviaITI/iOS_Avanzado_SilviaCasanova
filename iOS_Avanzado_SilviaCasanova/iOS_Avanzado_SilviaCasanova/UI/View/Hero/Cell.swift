@@ -10,17 +10,29 @@ import Kingfisher
 
 class Cell: UITableViewCell {
 
-    
-    var identifier = "Cell"
+    static let estimatedHeight: CGFloat = 220
+    static let identifier = "Cell"
     
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var heroName: UILabel!
     @IBOutlet weak var heroDescription: UITextView!
     @IBOutlet weak var container: UIView!
     
-    override func awakeFromNib() {
+ 
+        override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+            super.awakeFromNib()
+
+                 container.layer.cornerRadius = 8
+            container.layer.shadowColor = UIColor.gray.cgColor
+            container.layer.shadowOffset = .zero
+            container.layer.shadowRadius = 8
+            container.layer.shadowOpacity = 0.4
+
+            heroImage.layer.cornerRadius = 8
+            heroImage.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
+
+                 selectionStyle = .none
     }
   
     func updateData(with hero: Hero) {
