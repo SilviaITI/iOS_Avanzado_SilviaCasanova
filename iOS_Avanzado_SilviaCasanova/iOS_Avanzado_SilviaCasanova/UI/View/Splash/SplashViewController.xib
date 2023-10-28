@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashViewController" customModule="iOS_Avanzado_SilviaCasanova" customModuleProvider="target">
+            <connections>
+                <outlet property="loadingView" destination="OTf-oz-cAl" id="Zg3-NF-pgM"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fases_de_goku_by_wallpapersdbs_dcp9hws-fullview" translatesAutoresizingMaskIntoConstraints="NO" id="lZM-ij-bG1">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                </imageView>
+                <view hidden="YES" alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTf-oz-cAl">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="kcO-Dt-KC0">
+                            <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="kcO-Dt-KC0" firstAttribute="centerY" secondItem="OTf-oz-cAl" secondAttribute="centerY" id="Rz1-Go-cdn"/>
+                        <constraint firstItem="kcO-Dt-KC0" firstAttribute="centerX" secondItem="OTf-oz-cAl" secondAttribute="centerX" id="wGX-aE-T8f"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="lZM-ij-bG1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="5O3-nf-Q0l"/>
+                <constraint firstAttribute="bottom" secondItem="lZM-ij-bG1" secondAttribute="bottom" id="6bV-Zk-q0D"/>
+                <constraint firstItem="lZM-ij-bG1" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="RIe-qA-l0d"/>
+                <constraint firstItem="OTf-oz-cAl" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ace-Vz-1UL"/>
+                <constraint firstAttribute="bottom" secondItem="OTf-oz-cAl" secondAttribute="bottom" id="kNs-Kh-GSv"/>
+                <constraint firstItem="OTf-oz-cAl" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pBn-aS-rYb"/>
+                <constraint firstItem="OTf-oz-cAl" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="xSp-qx-GwN"/>
+                <constraint firstItem="lZM-ij-bG1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zb9-k1-cRE"/>
+            </constraints>
+            <point key="canvasLocation" x="136.64122137404578" y="20.422535211267608"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fases_de_goku_by_wallpapersdbs_dcp9hws-fullview" width="1024" height="1832"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

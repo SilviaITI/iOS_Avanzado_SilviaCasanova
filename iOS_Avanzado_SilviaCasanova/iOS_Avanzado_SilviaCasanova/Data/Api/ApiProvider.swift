@@ -80,7 +80,6 @@ final class ApiProvider {
             return
         }
         let base64LoginString = loginData.base64EncodedString()
-        print("🚀 \(base64LoginString)")
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
@@ -101,10 +100,9 @@ final class ApiProvider {
             
             guard statusCode == 200 else {
                 completion(.failure(.statusCode(code: statusCode)))
-                print("❌ \(statusCode)")
                 return
             }
-            print("✅ \(data)")
+        
             guard let token = String(data: data, encoding: .utf8) else {
                 completion(.failure(.decodingFailed))
                 return
