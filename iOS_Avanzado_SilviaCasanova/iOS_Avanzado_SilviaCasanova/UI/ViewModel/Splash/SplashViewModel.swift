@@ -16,7 +16,7 @@ class SplashViewModel: SplashViewControllerDelegate {
     func onViewAppear() {
         viewState?(.loading(true))
         DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
-            self.isTokenSaved() ?  self.viewState?(.navigateToHome): self.viewState?(.navigateToLogin)
+            self.isTokenSaved() ?  self.viewState?(.navigateToLogin): self.viewState?(.navigateToHome)
                     }
         }
         func isTokenSaved() -> Bool {

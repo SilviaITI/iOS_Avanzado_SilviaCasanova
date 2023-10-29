@@ -22,6 +22,12 @@ class HeroesTableViewController: UITableViewController {
     
     var viewModel = HeroesViewModel()
     var heroes: [Hero] = []
+    @IBOutlet weak var tabBar: UITabBar!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
     override func viewDidLoad() {
         title = "Héroes"
@@ -31,6 +37,7 @@ class HeroesTableViewController: UITableViewController {
             UINib(nibName: "Cell", bundle: nil),
             forCellReuseIdentifier: Cell.identifier
         )
+        tabBar.delegate = self
         tableView.reloadData()
     }
     
@@ -43,7 +50,7 @@ class HeroesTableViewController: UITableViewController {
                     self?.reloadData()
                     
                 case .navigateToDetail:
-                    self?.navigateToDetail()
+                    print("navigating to detail")
                 }
             }
         }
@@ -52,9 +59,7 @@ class HeroesTableViewController: UITableViewController {
     func reloadData() {
         self.tableView.reloadData()
     }
-    func navigateToDetail() {
-        
-    }
+    
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         Cell.estimatedHeight
@@ -86,21 +91,28 @@ class HeroesTableViewController: UITableViewController {
     override func tableView(
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) { // para presentar la
-             let hero = viewModel.heroBy(index: indexPath.row)
-                let detailViewController = DetailViewController()
-                detailViewController.hero = hero
-                navigationController?.show(detailViewController, sender: nil)
-                tableView.deselectRow(at: indexPath, animated: true)
-                
-                
-            }
+            let hero = viewModel.heroBy(index: indexPath.row)
+            let detailViewController = DetailViewController()
+            detailViewController.hero = hero
+            navigationController?.show(detailViewController, sender: nil)
+            tableView.deselectRow(at: indexPath, animated: true)
             
             
-        
-    
-    
-    
-    
-    
-    
+        }
 }
+            
+    extension HeroesTableViewController: UITabBarDelegate {
+        func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+            if item.tag == 1 {
+                let token = SecureDataProvider.shared.getToken()!
+                let splashViewController = SplashViewController()
+                navigationController?.setViewControllers([splashViewController], animated: true)
+                SecureDataProvider.shared.deleteToken(token: token)
+                CoreDataManager.shared.deleteAll()
+            } else if item.tag == 2 {
+                let mapViewController = MapViewController()
+                mapViewController.heroes = viewModel.heroes
+                navigationController?.pushViewController(mapViewController, animated: true)
+            }
+        }
+    }

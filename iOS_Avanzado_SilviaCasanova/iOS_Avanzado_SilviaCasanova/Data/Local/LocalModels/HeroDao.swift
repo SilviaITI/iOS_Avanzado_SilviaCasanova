@@ -16,7 +16,7 @@ class HeroDao: NSManagedObject {
     static let entityNameHero = "HeroDao"
     
     @NSManaged var descriptionHero: String?
-    @NSManaged var favoriote: Bool
+    @NSManaged var favorite: Bool
     @NSManaged var name: String?
     @NSManaged var photo: String?
     @NSManaged var id: String?
@@ -28,7 +28,7 @@ class HeroDao: NSManagedObject {
         name = hero.name
         descriptionHero = hero.description
         photo = hero.photo?.absoluteString
-        favoriote = hero.favorite ?? false
+        favorite = hero.favorite ?? false
         
     }
     

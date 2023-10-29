@@ -24,7 +24,6 @@ final class LoginViewModel: LoginViewControllerDelegate {
                     print(result)
                     DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
                         self?.viewState?(.loading(_isloading: false))
-                        self?.viewState?(.navigateToHome)
                         self?.onLoginResponse()
                     }
                     
@@ -40,14 +39,11 @@ final class LoginViewModel: LoginViewControllerDelegate {
     }
     
    private func onLoginResponse() {
-        defer { viewState?(.loading(_isloading: false)) }
-
-        // Parsear resultado que vendrá en notification.userInfo
+    
        guard let token = SecureDataProvider.shared.getToken(),
-              token.isEmpty else {
+              !token.isEmpty else {
             return
         }
-
         SecureDataProvider.shared.save(token: token)
         viewState?(.navigateToHome)
     }

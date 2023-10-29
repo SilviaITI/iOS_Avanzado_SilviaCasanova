@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroesTableViewController" customModule="iOS_Avanzado_SilviaCasanova" customModuleProvider="target">
             <connections>
+                <outlet property="tabBar" destination="pQd-hL-dK3" id="Pys-JU-ZQD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,8 +25,8 @@
                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <items>
-                    <tabBarItem image="rectangle.portrait.and.arrow.right" catalog="system" id="Iv0-1r-eSY"/>
-                    <tabBarItem image="map" catalog="system" id="44e-WA-u8C"/>
+                    <tabBarItem tag="1" image="rectangle.portrait.and.arrow.right" catalog="system" id="Iv0-1r-eSY"/>
+                    <tabBarItem tag="2" image="map" catalog="system" id="44e-WA-u8C"/>
                 </items>
             </tabBar>
             <connections>
