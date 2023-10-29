@@ -10,10 +10,13 @@ import UIKit
 protocol SplashViewControllerDelegate {
     var viewState: ((SplashViewState) -> Void)? { get set }
     func onViewAppear()
+    var loginViewModel: LoginViewModel { get set }
 }
 enum SplashViewState {
     case loading(_ isLoading: Bool)
     case navigateToLogin
+    case navigateToHome
+  
 }
 class SplashViewController: UIViewController {
 
@@ -26,23 +29,33 @@ class SplashViewController: UIViewController {
     }
     var viewModel = SplashViewModel()
     
-    func NavigateToLogin() {
-        DispatchQueue.main.async {
-            let loginViewController = LoginViewController()
-            self.navigationController?.show(loginViewController, sender: nil)
-        }
-    }
+
+  
     private func setObservers() {
         viewModel.viewState = { [weak self] state in
               DispatchQueue.main.async {
                   switch state {
                       case .loading(let isLoading):
                       self?.loadingView.isHidden = !isLoading
-
                       case .navigateToLogin:
                           self?.NavigateToLogin()
+                  case .navigateToHome:
+                      self?.NavigateToHome()
+                  
                   }
               }
           }
       }
+    private func NavigateToLogin() {
+        DispatchQueue.main.async {
+            let loginViewController = LoginViewController()
+            self.navigationController?.setViewControllers([loginViewController], animated: true)
+        }
+    }
+    private func NavigateToHome() {
+        DispatchQueue.main.async {
+            let heroesViewController = HeroesTableViewController()
+            self.navigationController?.show(heroesViewController, sender: LoginViewModel())
+        }
+    }
 }

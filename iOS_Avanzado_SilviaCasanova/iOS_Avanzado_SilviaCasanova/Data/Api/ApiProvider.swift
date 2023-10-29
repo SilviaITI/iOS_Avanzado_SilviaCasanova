@@ -110,9 +110,10 @@ final class ApiProvider {
             
             completion(.success(token))
             self?.token = token
+          
         }
         print("respuesta token \(request)")
-        
+       
         task.resume()
     }
     

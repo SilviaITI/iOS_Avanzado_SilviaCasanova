@@ -11,10 +11,12 @@ import KeychainSwift
 protocol SecureDataProviderProtocol {
     func save(token: String)
     func getToken() -> String?
+    
 }
 
 final class SecureDataProvider: SecureDataProviderProtocol {
     private let keychain = KeychainSwift()
+    static let shared = SecureDataProvider()
 
     private enum Key {
         static let token = "KEY_KEYCHAIN_TOKEN"

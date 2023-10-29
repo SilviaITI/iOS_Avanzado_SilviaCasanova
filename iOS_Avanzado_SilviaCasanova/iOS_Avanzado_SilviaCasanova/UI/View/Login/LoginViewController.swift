@@ -23,14 +23,13 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loadingView: UIView!
     var viewModel = LoginViewModel()
-    
-    override func viewDidLoad() {
+        override func viewDidLoad() {
         super.viewDidLoad()
         setObservers()
 
         // Do any additional setup after loading the view.
     }
-    
+  
     @IBAction func onLoginPressed(_ sender: Any) {
         viewModel.fetchLogin(
             with: emailTextfield.text ,
@@ -38,8 +37,9 @@ class LoginViewController: UIViewController {
     }
     
     private func navigateToHome() {
+   
         let heroesTableViewController = HeroesTableViewController()
-        navigationController?.setViewControllers([heroesTableViewController], animated: true)
+        navigationController?.pushViewController(heroesTableViewController, animated: true)
         
     }
     func setObservers() {

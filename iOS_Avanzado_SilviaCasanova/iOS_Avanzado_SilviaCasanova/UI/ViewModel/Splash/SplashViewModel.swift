@@ -8,14 +8,19 @@
 import Foundation
 
 class SplashViewModel: SplashViewControllerDelegate {
+    var loginViewModel: LoginViewModel = LoginViewModel()
+    
     
     var viewState: ((SplashViewState) -> Void)?
-    
     
     func onViewAppear() {
         viewState?(.loading(true))
         DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
-            self.viewState?(.navigateToLogin)
+            self.isTokenSaved() ?  self.viewState?(.navigateToLogin): self.viewState?(.navigateToHome)
+                    }
+        }
+        func isTokenSaved() -> Bool {
+            SecureDataProvider.shared.getToken()?.isEmpty == false
         }
     }
-}
+
