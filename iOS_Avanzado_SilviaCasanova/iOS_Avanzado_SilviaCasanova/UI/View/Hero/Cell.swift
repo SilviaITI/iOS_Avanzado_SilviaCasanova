@@ -15,7 +15,6 @@ class Cell: UITableViewCell {
     
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var heroName: UILabel!
-    
     @IBOutlet weak var heroDescription: UILabel!
     @IBOutlet weak var container: UIView!
     
@@ -23,17 +22,17 @@ class Cell: UITableViewCell {
         override func awakeFromNib() {
         super.awakeFromNib()
             super.awakeFromNib()
-//
-//                 container.layer.cornerRadius = 8
-//            container.layer.shadowColor = UIColor.gray.cgColor
-//            container.layer.shadowOffset = .zero
-//            container.layer.shadowRadius = 8
-//            container.layer.shadowOpacity = 0.4
-//
-//            heroImage.layer.cornerRadius = 8
-//            heroImage.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
-//
-//                 selectionStyle = .none
+
+                 container.layer.cornerRadius = 8
+            container.layer.shadowColor = UIColor.gray.cgColor
+            container.layer.shadowOffset = .zero
+            container.layer.shadowRadius = 8
+            container.layer.shadowOpacity = 0.4
+
+            heroImage.layer.cornerRadius = 8
+            heroImage.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
+
+                 selectionStyle = .none
     }
   
     func updateData(with hero: Hero) {

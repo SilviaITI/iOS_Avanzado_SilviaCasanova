@@ -55,7 +55,7 @@ class SplashViewController: UIViewController {
     private func NavigateToHome() {
         DispatchQueue.main.async {
             let heroesViewController = HeroesTableViewController()
-            self.navigationController?.show(heroesViewController, sender: LoginViewModel())
+            self.navigationController?.setViewControllers([heroesViewController], animated: true)
         }
     }
 }

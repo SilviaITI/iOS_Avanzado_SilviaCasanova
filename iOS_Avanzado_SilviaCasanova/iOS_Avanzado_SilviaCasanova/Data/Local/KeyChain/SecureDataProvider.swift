@@ -29,4 +29,7 @@ final class SecureDataProvider: SecureDataProviderProtocol {
     func getToken() -> String? {
         keychain.get(Key.token)
     }
+    func deleteToken(token: String) {
+        keychain.delete(Key.token)
+    }
 }
