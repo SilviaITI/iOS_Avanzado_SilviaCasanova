@@ -149,39 +149,81 @@ final class ApiProvider {
         print("respuesta heroes \(request)")
         
     }
-    
-    func getLocations( 
-        completion: @escaping (Result<[Location], ApiProviderError>) -> Void
-    ) {
-        var components = baseComponents
-        components.path = Path.heroLocations
+    func getLocations(by heroId: String?, token: String, completion: (([Location]) -> Void)?) {
+        guard  let url = URL(string: "https://dragonball.keepcoding.education/api/heros/locations") else { return }
+                    
         
-        guard let url = components.url else {
-            completion(.failure(.malformedUrl))
-            return
-        }
-        
-        guard let token else {
-            completion(.failure(.noToken))
-            return
-        }
-        
-        
-        var urlComponents = URLComponents()
-        urlComponents.queryItems = [URLQueryItem(name: "id", value: "")]
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.httpBody = urlComponents.query?.data(using: .utf8)
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        createTask(
-            for: request,
-            using: [Location].self,
-            completion: completion
-        )
-        print("respuesta heroes \(request)")
-        
-    }
+           let jsonData: [String: Any] = ["id": heroId ?? ""]
+           let jsonParameters = try? JSONSerialization.data(withJSONObject: jsonData)
+
+           var urlRequest = URLRequest(url: url)
+           urlRequest.httpMethod = "POST"
+           urlRequest.setValue("application/json; charset=utf-8",
+                               forHTTPHeaderField: "Content-Type")
+           urlRequest.setValue("Bearer \(token)",
+                               forHTTPHeaderField: "Authorization")
+           urlRequest.httpBody = jsonParameters
+
+           URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
+               guard error == nil else {
+                   // TODO: Enviar notificación indicando el error
+                   completion?([])
+                   return
+               }
+
+               guard let data,
+                     (response as? HTTPURLResponse)?.statusCode == 200 else {
+                   // TODO: Enviar notificación indicando response error
+                   completion?([])
+                   return
+               }
+
+               guard let heroLocations = try? JSONDecoder().decode( [Location].self, from: data) else {
+                   // TODO: Enviar notificación indicando response error
+                   completion?([])
+                   return
+               }
+
+               print("API RESPONSE - GET HERO LOCATIONS: \(heroLocations)")
+               completion?(heroLocations)
+           }.resume()
+       }
+   
+//    func getLocations( by heroId: String?,
+//        completion: @escaping (Result<[Location], ApiProviderError>) -> Void
+//    ) {
+//        var components = baseComponents
+//        components.path = Path.heroLocations
+//
+//        let jsonData: [String: Any] = ["id": heroId ?? ""]
+//                let jsonParameters = try? JSONSerialization.data(withJSONObject: jsonData)
+//
+//        guard let url = components.url else {
+//            completion(.failure(.malformedUrl))
+//            return
+//        }
+//
+//        guard let token else {
+//            completion(.failure(.noToken))
+//            return
+//        }
+//
+//
+//        var urlComponents = URLComponents()
+//        urlComponents.queryItems = [URLQueryItem(name: "id", value: "")]
+//
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.httpBody = urlComponents.query?.data(using: .utf8)
+//        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+//        createTask(
+//            for: request,
+//            using: [Location].self,
+//            completion: completion
+//        )
+//        print("respuesta heroes \(request)")
+//
+ 
    
         // Function that requests a response from a URL with a type "T" item
         func createTask<T: Decodable>(

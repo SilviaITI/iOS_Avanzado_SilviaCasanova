@@ -39,7 +39,7 @@
 		619C43682AED250400B99427 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C43662AED250400B99427 /* Cell.swift */; };
 		619C43692AED250400B99427 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619C43672AED250400B99427 /* Cell.xib */; };
 		619C436C2AED267F00B99427 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 619C436B2AED267F00B99427 /* Kingfisher */; };
-		61BC9DBF2AEE7E1400B363C4 /* Anotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BC9DBE2AEE7E1400B363C4 /* Anotations.swift */; };
+		61BC9DBF2AEE7E1400B363C4 /* LocationsAnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BC9DBE2AEE7E1400B363C4 /* LocationsAnotations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,7 +94,7 @@
 		619C43642AED1E0200B99427 /* HeroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewModel.swift; sourceTree = "<group>"; };
 		619C43662AED250400B99427 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		619C43672AED250400B99427 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
-		61BC9DBE2AEE7E1400B363C4 /* Anotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anotations.swift; sourceTree = "<group>"; };
+		61BC9DBE2AEE7E1400B363C4 /* LocationsAnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsAnotations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +145,7 @@
 			children = (
 				6123DBBD2AEE48930029C383 /* MapViewController.swift */,
 				6123DBBE2AEE48930029C383 /* MapViewController.xib */,
-				61BC9DBE2AEE7E1400B363C4 /* Anotations.swift */,
+				61BC9DBE2AEE7E1400B363C4 /* LocationsAnotations.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -559,7 +559,7 @@
 				619C435D2AED09C500B99427 /* TypeAlias.swift in Sources */,
 				619C43562AECFFDF00B99427 /* LoginViewController.swift in Sources */,
 				619C434E2AECF87300B99427 /* LoginUseCase.swift in Sources */,
-				61BC9DBF2AEE7E1400B363C4 /* Anotations.swift in Sources */,
+				61BC9DBF2AEE7E1400B363C4 /* LocationsAnotations.swift in Sources */,
 				6112AF4F2AEDC24700E3F187 /* HeroesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

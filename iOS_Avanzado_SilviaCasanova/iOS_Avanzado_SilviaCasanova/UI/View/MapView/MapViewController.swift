@@ -9,33 +9,56 @@ import UIKit
 import MapKit
 
 class MapViewController: UIViewController {
-    var locations:[Location] = []
     var heroes: [Hero] = []
     @IBOutlet weak var heroesMap: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fectchLocations()
+        
         // Do any additional setup after loading the view.
     }
     
     
     func fectchLocations() {
-        ApiProvider.shared.getLocations { result in
-            switch result {
-            case let .success(locations):
-                self.locations = locations
-                
-                DispatchQueue.main.async {
-                    print("se han cargado los heroes")
+        for hero in heroes {
+            
+            DispatchQueue.global().async {
+                // defer { self.viewState?(.loading(false)) }
+                guard let token = SecureDataProvider.shared.getToken() else {
+                    return
                 }
                 
-            case let .failure(error):
-                print("Error: \(error)")
+                ApiProvider.shared.getLocations(
+                    by: hero.id,
+                    token: token
+                ) { [weak self] heroLocations in
+                    self?.updateViews(locations: heroLocations)
+                    print("\(heroLocations)")
+                }
+                
             }
-            print("\(self.locations)")
         }
+    }
+    private func updateViews( locations: [Location] ) {
+        DispatchQueue.main.async {
+            for hero in self.heroes {
+            locations.forEach {
+                self.heroesMap.addAnnotation(
+                    LocationsAnotations(
+                        coordinate: .init(latitude: Double($0.latitud ) ?? 0.0,
+                                          longitude: Double($0.longitud ) ?? 0.0),
+                        title:hero.name,
+                        info: hero.id
+                    )
+                )
+               
+                       self.heroesMap.setNeedsDisplay() // Refresca el mapa
+                   }
+                
+            }
+        }
+
         
     }
-  
 }
