@@ -17,6 +17,8 @@
 		6112AF502AEDC24700E3F187 /* HeroesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6112AF4E2AEDC24700E3F187 /* HeroesTableViewController.xib */; };
 		6123DBBF2AEE48930029C383 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6123DBBD2AEE48930029C383 /* MapViewController.swift */; };
 		6123DBC02AEE48930029C383 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6123DBBE2AEE48930029C383 /* MapViewController.xib */; };
+		6179F6B92AEEC16B0041BDFF /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6179F6B82AEEC16B0041BDFF /* CoreDataManager.swift */; };
+		6179F6BB2AEEDDDE0041BDFF /* HeroDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6179F6BA2AEEDDDE0041BDFF /* HeroDao.swift */; };
 		61854D862AEC37DA00C57E57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61854D852AEC37DA00C57E57 /* AppDelegate.swift */; };
 		61854D882AEC37DA00C57E57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61854D872AEC37DA00C57E57 /* SceneDelegate.swift */; };
 		61854D902AEC37DA00C57E57 /* iOS_Avanzado_SilviaCasanova.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 61854D8E2AEC37DA00C57E57 /* iOS_Avanzado_SilviaCasanova.xcdatamodeld */; };
@@ -29,12 +31,10 @@
 		619C43302AECD73400B99427 /* SecureDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C432F2AECD73400B99427 /* SecureDataProvider.swift */; };
 		619C43332AECD77800B99427 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 619C43322AECD77800B99427 /* KeychainSwift */; };
 		619C433A2AECD8E400B99427 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C43392AECD8E400B99427 /* Location.swift */; };
-		619C434E2AECF87300B99427 /* LoginUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C434D2AECF87300B99427 /* LoginUseCase.swift */; };
 		619C43512AECF9AD00B99427 /* ApiProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C43502AECF9AD00B99427 /* ApiProvider.swift */; };
 		619C43562AECFFDF00B99427 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C43542AECFFDF00B99427 /* LoginViewController.swift */; };
 		619C43572AECFFDF00B99427 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619C43552AECFFDF00B99427 /* LoginViewController.xib */; };
 		619C43592AED00FC00B99427 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C43582AED00FC00B99427 /* LoginViewModel.swift */; };
-		619C435D2AED09C500B99427 /* TypeAlias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C435C2AED09C500B99427 /* TypeAlias.swift */; };
 		619C43652AED1E0200B99427 /* HeroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C43642AED1E0200B99427 /* HeroViewModel.swift */; };
 		619C43682AED250400B99427 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619C43662AED250400B99427 /* Cell.swift */; };
 		619C43692AED250400B99427 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 619C43672AED250400B99427 /* Cell.xib */; };
@@ -70,6 +70,8 @@
 		6112AF4E2AEDC24700E3F187 /* HeroesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesTableViewController.xib; sourceTree = "<group>"; };
 		6123DBBD2AEE48930029C383 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		6123DBBE2AEE48930029C383 /* MapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		6179F6B82AEEC16B0041BDFF /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		6179F6BA2AEEDDDE0041BDFF /* HeroDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDao.swift; sourceTree = "<group>"; };
 		61854D822AEC37DA00C57E57 /* iOS_Avanzado_SilviaCasanova.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS_Avanzado_SilviaCasanova.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61854D852AEC37DA00C57E57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61854D872AEC37DA00C57E57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,12 +87,10 @@
 		619C43272AECD5A500B99427 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		619C432F2AECD73400B99427 /* SecureDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureDataProvider.swift; sourceTree = "<group>"; };
 		619C43392AECD8E400B99427 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		619C434D2AECF87300B99427 /* LoginUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUseCase.swift; sourceTree = "<group>"; };
 		619C43502AECF9AD00B99427 /* ApiProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProvider.swift; sourceTree = "<group>"; };
 		619C43542AECFFDF00B99427 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		619C43552AECFFDF00B99427 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		619C43582AED00FC00B99427 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		619C435C2AED09C500B99427 /* TypeAlias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAlias.swift; sourceTree = "<group>"; };
 		619C43642AED1E0200B99427 /* HeroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewModel.swift; sourceTree = "<group>"; };
 		619C43662AED250400B99427 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
 		619C43672AED250400B99427 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
@@ -127,6 +127,7 @@
 		6112AF452AEDAB5200E3F187 /* LocalModels */ = {
 			isa = PBXGroup;
 			children = (
+				6179F6BA2AEEDDDE0041BDFF /* HeroDao.swift */,
 			);
 			path = LocalModels;
 			sourceTree = "<group>";
@@ -134,8 +135,8 @@
 		6112AF4C2AEDC22200E3F187 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
-				6112AF4D2AEDC24700E3F187 /* HeroesTableViewController.swift */,
 				6112AF4E2AEDC24700E3F187 /* HeroesTableViewController.xib */,
+				6112AF4D2AEDC24700E3F187 /* HeroesTableViewController.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -143,8 +144,8 @@
 		6123DBB82AEE47710029C383 /* MapView */ = {
 			isa = PBXGroup;
 			children = (
-				6123DBBD2AEE48930029C383 /* MapViewController.swift */,
 				6123DBBE2AEE48930029C383 /* MapViewController.xib */,
+				6123DBBD2AEE48930029C383 /* MapViewController.swift */,
 				61BC9DBE2AEE7E1400B363C4 /* LocationsAnotations.swift */,
 			);
 			path = MapView;
@@ -224,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				61854D8E2AEC37DA00C57E57 /* iOS_Avanzado_SilviaCasanova.xcdatamodeld */,
+				6179F6B82AEEC16B0041BDFF /* CoreDataManager.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -256,11 +258,7 @@
 		619C433D2AECDA6000B99427 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				619C434B2AECDB4600B99427 /* Extensions */,
-				619C434A2AECDB3000B99427 /* UseCase */,
 				619C43492AECDB2900B99427 /* Models */,
-				619C43482AECDB2000B99427 /* Protocol */,
-				619C435C2AED09C500B99427 /* TypeAlias.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -324,8 +322,8 @@
 			isa = PBXGroup;
 			children = (
 				61854D932AEC37DC00C57E57 /* LaunchScreen.storyboard */,
-				6112AF482AEDB83800E3F187 /* SplashViewController.swift */,
 				6112AF492AEDB83800E3F187 /* SplashViewController.xib */,
+				6112AF482AEDB83800E3F187 /* SplashViewController.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -352,17 +350,10 @@
 		619C43472AECDAE100B99427 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				6106B2C02AED66F800023373 /* DetailViewController.swift */,
 				6106B2C12AED66F800023373 /* DetailViewController.xib */,
+				6106B2C02AED66F800023373 /* DetailViewController.swift */,
 			);
 			path = Detail;
-			sourceTree = "<group>";
-		};
-		619C43482AECDB2000B99427 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		619C43492AECDB2900B99427 /* Models */ = {
@@ -372,21 +363,6 @@
 				619C43392AECD8E400B99427 /* Location.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		619C434A2AECDB3000B99427 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				619C434D2AECF87300B99427 /* LoginUseCase.swift */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
-		619C434B2AECDB4600B99427 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		619C434C2AECDB9200B99427 /* KeyChain */ = {
@@ -543,6 +519,7 @@
 			files = (
 				619C433A2AECD8E400B99427 /* Location.swift in Sources */,
 				619C43592AED00FC00B99427 /* LoginViewModel.swift in Sources */,
+				6179F6BB2AEEDDDE0041BDFF /* HeroDao.swift in Sources */,
 				6112AF472AEDB55A00E3F187 /* SplashViewModel.swift in Sources */,
 				6112AF4A2AEDB83800E3F187 /* SplashViewController.swift in Sources */,
 				61854D902AEC37DA00C57E57 /* iOS_Avanzado_SilviaCasanova.xcdatamodeld in Sources */,
@@ -550,15 +527,14 @@
 				61854D862AEC37DA00C57E57 /* AppDelegate.swift in Sources */,
 				6123DBBF2AEE48930029C383 /* MapViewController.swift in Sources */,
 				6106B2C52AED670C00023373 /* DetailViewModel.swift in Sources */,
+				6179F6B92AEEC16B0041BDFF /* CoreDataManager.swift in Sources */,
 				61854D882AEC37DA00C57E57 /* SceneDelegate.swift in Sources */,
 				619C43302AECD73400B99427 /* SecureDataProvider.swift in Sources */,
 				6106B2C22AED66F800023373 /* DetailViewController.swift in Sources */,
 				619C43652AED1E0200B99427 /* HeroViewModel.swift in Sources */,
 				619C43512AECF9AD00B99427 /* ApiProvider.swift in Sources */,
 				619C43282AECD5A500B99427 /* Hero.swift in Sources */,
-				619C435D2AED09C500B99427 /* TypeAlias.swift in Sources */,
 				619C43562AECFFDF00B99427 /* LoginViewController.swift in Sources */,
-				619C434E2AECF87300B99427 /* LoginUseCase.swift in Sources */,
 				61BC9DBF2AEE7E1400B363C4 /* LocationsAnotations.swift in Sources */,
 				6112AF4F2AEDC24700E3F187 /* HeroesTableViewController.swift in Sources */,
 			);

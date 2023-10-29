@@ -28,7 +28,6 @@ class MapViewController: UIViewController {
                 guard let token = SecureDataProvider.shared.getToken() else {
                     return
                 }
-                
                 ApiProvider.shared.getLocations(
                     by: hero.id,
                     token: token
@@ -36,6 +35,7 @@ class MapViewController: UIViewController {
                     self?.updateViews(locations: heroLocations)
                     print("\(heroLocations)")
                 }
+                
                 
             }
         }

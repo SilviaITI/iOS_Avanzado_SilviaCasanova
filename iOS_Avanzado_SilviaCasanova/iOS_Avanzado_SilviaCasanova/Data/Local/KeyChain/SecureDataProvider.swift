@@ -15,6 +15,7 @@ protocol SecureDataProviderProtocol {
 }
 
 final class SecureDataProvider: SecureDataProviderProtocol {
+    
     private let keychain = KeychainSwift()
     static let shared = SecureDataProvider()
 
