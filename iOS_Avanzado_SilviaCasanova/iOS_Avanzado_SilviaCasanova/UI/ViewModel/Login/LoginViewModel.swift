@@ -43,7 +43,7 @@ final class LoginViewModel: LoginViewControllerDelegate {
         defer { viewState?(.loading(_isloading: false)) }
 
         // Parsear resultado que vendrá en notification.userInfo
-        guard let token = SecureDataProvider.shared.getToken() as? String,
+       guard let token = SecureDataProvider.shared.getToken(),
               token.isEmpty else {
             return
         }

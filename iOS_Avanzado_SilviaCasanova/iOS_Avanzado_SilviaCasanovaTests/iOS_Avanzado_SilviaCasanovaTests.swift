@@ -32,5 +32,36 @@ final class iOS_Avanzado_SilviaCasanovaTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    // Test de la función save(token:)
+     func testSaveToken() {
+         
+         let secureDataProvider = SecureDataProvider.shared
+         let tokenToSave = "TestToken"
+         secureDataProvider.save(token: tokenToSave)
+         let retrievedToken = secureDataProvider.getToken()
+         XCTAssertEqual(retrievedToken, tokenToSave)
+     }
+    
+    // Test de la función getToken()
+     func testGetToken() {
+         
+         let secureDataProvider = SecureDataProvider.shared
+         let tokenToSave = "TestToken"
+         secureDataProvider.save(token: tokenToSave)
+         let retrievedToken = secureDataProvider.getToken()
+         XCTAssertEqual(retrievedToken, tokenToSave)
+     }
+    // Test de la funcion DeleteToken()
+    func testDeleteToken() {
+        
+         let secureDataProvider = SecureDataProvider.shared
+         let tokenToSave = "myAccessToken"
+         secureDataProvider.save(token: tokenToSave)
+         secureDataProvider.deleteToken(token: tokenToSave)
+         XCTAssertNil(secureDataProvider.getToken())
+     }
+ }
+    
 
-}
+

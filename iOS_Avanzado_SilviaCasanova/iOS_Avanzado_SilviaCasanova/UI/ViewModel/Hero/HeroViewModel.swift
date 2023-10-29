@@ -9,21 +9,23 @@ import Foundation
 
 class HeroesViewModel: HeroesTableViewControllerDelegate {
     var viewState: ((HeroesViewState) -> Void)?
-    
     var heroes: [Hero] = []
     var heroesCount: Int {
         return heroes.count
     }
     
     func  fetchHeroesList() {
-        
         let savedHeroes = CoreDataManager.shared.loadHero()
         if !savedHeroes.isEmpty {
             self.heroes = savedHeroes.map { heroDao in
-                return Hero(id: heroDao.id ?? "", name: heroDao.name, description: heroDao.descriptionHero, photo: URL(string: heroDao.photo ?? ""), favorite: heroDao.favoriote ?? false)
+                return Hero(   id: heroDao.id ?? "",
+                               name: heroDao.name ?? "",
+                               description: heroDao.descriptionHero ?? "",
+                               photo: URL(string: heroDao.photo ?? ""),
+                               favorite: heroDao.favoriote)
+                self.viewState?(.reloadData)
             }
-            self.viewState?(.reloadData)
-        }
+        } else {
             ApiProvider.shared.getHeroes { result in
                 switch result {
                 case let .success(heroes):
@@ -39,11 +41,10 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
                 case let .failure(error):
                     print("Error: \(error)")
                 }
-                
             }
-            
         }
-    
+    }
+        
         func heroBy(index: Int) -> Hero? {
             if index >= 0 && index < heroesCount {
                 return heroes[index]
@@ -51,7 +52,5 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
                 return nil
             }
         }
-        
     }
-    
 
