@@ -15,18 +15,18 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
     }
     
     func  fetchHeroesList() {
-//        let savedHeroes = CoreDataManager.shared.loadHero()
-//        if !savedHeroes.isEmpty {
-//            self.heroes = savedHeroes.map { heroDao in
-//                return Hero(   id: heroDao.id ?? "",
-//                               name: heroDao.name ?? "",
-//                               description: heroDao.descriptionHero ?? "",
-//                               photo: URL(string: heroDao.photo ?? ""),
-//                               favorite: heroDao.favorite)
-//            }
-//                self.viewState?(.reloadData)
-//            
-//        } else {
+        let savedHeroes = CoreDataManager.shared.loadHero()
+        if !savedHeroes.isEmpty {
+            self.heroes = savedHeroes.map { heroDao in
+                return Hero(   id: heroDao.id ?? "",
+                               name: heroDao.name ?? "",
+                               description: heroDao.descriptionHero ?? "",
+                               photo: URL(string: heroDao.photo ?? ""),
+                               favorite: heroDao.favorite)
+            }
+            self.viewState?(.reloadData)
+            
+        } else {
             ApiProvider.shared.getHeroes { result in
                 switch result {
                 case let .success(heroes):
@@ -44,7 +44,7 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
                 }
             }
         }
-    
+    }
         
         func heroBy(index: Int) -> Hero? {
             if index >= 0 && index < heroesCount {
@@ -54,5 +54,6 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
             }
         }
     }
-
+    
+    
 
