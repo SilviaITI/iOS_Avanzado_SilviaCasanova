@@ -15,28 +15,14 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
     }
     
     func  fetchHeroesList() {
-        let savedHeroes = CoreDataManager.shared.loadHero()
-        if !savedHeroes.isEmpty {
-            self.heroes = savedHeroes.map { heroDao in
-                return Hero(   id: heroDao.id ?? "",
-                               name: heroDao.name ?? "",
-                               description: heroDao.descriptionHero ?? "",
-                               photo: URL(string: heroDao.photo ?? ""),
-                               favorite: heroDao.favorite)
-            }
-            self.viewState?(.reloadData)
-            
-        } else {
+     
             ApiProvider.shared.getHeroes { result in
                 switch result {
                 case let .success(heroes):
                     self.heroes = heroes
                     DispatchQueue.main.async {
-                        
                         self.viewState?(.reloadData)
-                        for hero in heroes {
-                            CoreDataManager.shared.saveHero(hero: hero)
-                        }
+                     
                     }
                     
                 case let .failure(error):
@@ -44,7 +30,7 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
                 }
             }
         }
-    }
+   
         
         func heroBy(index: Int) -> Hero? {
             if index >= 0 && index < heroesCount {

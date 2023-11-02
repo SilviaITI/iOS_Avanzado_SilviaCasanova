@@ -1,4 +1,4 @@
-//
+
 //  SplashViewModel.swift
 //  iOS_Avanzado_SilviaCasanova
 //
@@ -16,11 +16,16 @@ class SplashViewModel: SplashViewControllerDelegate {
     func onViewAppear() {
         viewState?(.loading(true))
         DispatchQueue.global().asyncAfter(deadline: .now() + .seconds(2)) {
-            self.isTokenSaved() ? self.viewState?(.navigateToHome): self.viewState?(.navigateToLogin)
-                    }
-        }
-        func isTokenSaved() -> Bool {
-            SecureDataProvider.shared.getToken()?.isEmpty == false
+            if self.isTokenSaved() { self.viewState?(.navigateToHome)
+            }
+            else {
+                self.viewState?(.navigateToLogin)
+            }
         }
     }
+        func isTokenSaved() -> Bool {
+            SecureDataProvider.shared.getToken() != nil
+        }
+    }
+    
 

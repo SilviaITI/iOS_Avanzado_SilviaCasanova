@@ -37,8 +37,10 @@ class HeroesTableViewController: UITableViewController {
             UINib(nibName: "Cell", bundle: nil),
             forCellReuseIdentifier: Cell.identifier
         )
-        tabBar.delegate = self
+        setObservers()
         tableView.reloadData()
+        tabBar.delegate = self
+       
     }
     
     // MARK: - Table view data source
@@ -105,10 +107,10 @@ class HeroesTableViewController: UITableViewController {
         func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
             if item.tag == 1 {
                 let token = SecureDataProvider.shared.getToken()!
+                SecureDataProvider.shared.deleteToken(token: token)
                 let splashViewController = SplashViewController()
                 navigationController?.setViewControllers([splashViewController], animated: true)
-                SecureDataProvider.shared.deleteToken(token: token)
-                CoreDataManager.shared.deleteAll()
+              
             } else if item.tag == 2 {
                 let mapViewController = MapViewController()
                 mapViewController.heroes = viewModel.heroes
