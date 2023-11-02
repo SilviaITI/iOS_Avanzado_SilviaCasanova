@@ -24,12 +24,19 @@ class HeroDao: NSManagedObject {
     convenience init(hero: Hero, context: NSManagedObjectContext) {
         self.init( context: context)
         
-     id = hero.id
-        name = hero.name
-        descriptionHero = hero.description
-        photo = hero.photo?.absoluteString
-        favorite = hero.favorite ?? false
+        id = hero.id
+        if let name = hero.name {
+            self.name = name
+        }
+        if let descriptionHero = hero.description {
+            self.descriptionHero = descriptionHero
+        }
+        if let photo = hero.photo {
+            self.photo = photo.absoluteString
+        }
+        if let favorite = hero.favorite {
+            self.favorite = favorite
+        }
         
     }
-    
 }

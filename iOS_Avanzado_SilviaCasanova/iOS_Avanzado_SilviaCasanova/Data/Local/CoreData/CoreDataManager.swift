@@ -21,7 +21,7 @@ class CoreDataManager {
             return
         }
         
-        let newHero = HeroDao(entity: heroEntity, insertInto: moc)
+        //let newHero = HeroDao(entity: heroEntity, insertInto: moc)
         // Configura las propiedades de 'newHero' con los datos del héroe que quieras guardar
         do {
             try moc.save()

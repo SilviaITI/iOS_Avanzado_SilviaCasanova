@@ -19,13 +19,15 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
               if !savedHeroes.isEmpty {
                   self.heroes = savedHeroes.map { heroDao in
                       return Hero(   id: heroDao.id ,
-                                     name: heroDao.name ?? "",
+                                     name: heroDao.name,
                                      description: heroDao.descriptionHero ,
                                      photo: URL(string: heroDao.photo ?? ""),
                                      favorite: heroDao.favorite )
+                      
                   }
-                  print(savedHeroes)
                   self.viewState?(.reloadData)
+                  print(savedHeroes)
+                 
                   
               } else {
                   ApiProvider.shared.getHeroes { result in

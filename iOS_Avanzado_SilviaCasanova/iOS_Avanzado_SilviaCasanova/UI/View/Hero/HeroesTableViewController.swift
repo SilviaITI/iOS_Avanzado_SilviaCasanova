@@ -103,18 +103,18 @@ class HeroesTableViewController: UITableViewController {
         }
 }
             
-    extension HeroesTableViewController: UITabBarDelegate {
-        func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-            if item.tag == 1 {
-                let token = SecureDataProvider.shared.getToken()!
-                SecureDataProvider.shared.deleteToken(token: token)
-                let splashViewController = SplashViewController()
-                navigationController?.setViewControllers([splashViewController], animated: true)
-              
-            } else if item.tag == 2 {
-                let mapViewController = MapViewController()
-                mapViewController.heroes = viewModel.heroes
-                navigationController?.pushViewController(mapViewController, animated: true)
-            }
-        }
-    }
+extension HeroesTableViewController: UITabBarDelegate {
+      func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+          if item.tag == 1 {
+              let token = SecureDataProvider.shared.getToken()!
+              let splashViewController = SplashViewController()
+              navigationController?.setViewControllers([splashViewController], animated: true)
+              SecureDataProvider.shared.deleteToken(token: token)
+              CoreDataManager.shared.deleteAll()
+          } else if item.tag == 2 {
+              let mapViewController = MapViewController()
+              mapViewController.heroes = viewModel.heroes
+              navigationController?.pushViewController(mapViewController, animated: true)
+          }
+      }
+  }
