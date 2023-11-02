@@ -16,17 +16,22 @@ class CoreDataManager {
 
 
     func saveHero(hero: Hero) {
-           guard let moc = moc,
-                 let heroEntity = NSEntityDescription.entity(forEntityName: HeroDao.entityNameHero, in: moc) else {
-               return
-           }
-
-           let newHero = HeroDao(entity: heroEntity, insertInto: moc)
-           // Configura las propiedades de 'newHero' con los datos del héroe que quieras guardar
-           try? moc.save()
-       }
-
-
+        guard let moc = moc,
+              let heroEntity = NSEntityDescription.entity(forEntityName: HeroDao.entityNameHero, in: moc) else {
+            return
+        }
+        
+        let newHero = HeroDao(entity: heroEntity, insertInto: moc)
+        // Configura las propiedades de 'newHero' con los datos del héroe que quieras guardar
+        do {
+            try moc.save()
+            print("Se han guardado los héroes")
+        } catch {
+            print("Error al guardar los héroes")
+        }
+        
+        
+    }
     func loadHero() -> [HeroDao] {
         guard let moc = moc else {
             return []

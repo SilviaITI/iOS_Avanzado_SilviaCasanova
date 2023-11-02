@@ -19,7 +19,7 @@ class HeroDao: NSManagedObject {
     @NSManaged var favorite: Bool
     @NSManaged var name: String?
     @NSManaged var photo: String?
-    @NSManaged var id: String?
+    @NSManaged var id: String
     
     convenience init(hero: Hero, context: NSManagedObjectContext) {
         self.init( context: context)

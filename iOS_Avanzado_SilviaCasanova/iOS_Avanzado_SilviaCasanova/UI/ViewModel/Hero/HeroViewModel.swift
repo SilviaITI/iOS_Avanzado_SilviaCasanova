@@ -14,22 +14,38 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
         return heroes.count
     }
     
-    func  fetchHeroesList() {
-     
-            ApiProvider.shared.getHeroes { result in
-                switch result {
-                case let .success(heroes):
-                    self.heroes = heroes
-                    DispatchQueue.main.async {
-                        self.viewState?(.reloadData)
-                     
-                    }
-                    
-                case let .failure(error):
-                    print("Error: \(error)")
-                }
-            }
-        }
+        func  fetchHeroesList() {
+              let savedHeroes = CoreDataManager.shared.loadHero()
+              if !savedHeroes.isEmpty {
+                  self.heroes = savedHeroes.map { heroDao in
+                      return Hero(   id: heroDao.id ,
+                                     name: heroDao.name ?? "",
+                                     description: heroDao.descriptionHero ,
+                                     photo: URL(string: heroDao.photo ?? ""),
+                                     favorite: heroDao.favorite )
+                  }
+                  print(savedHeroes)
+                  self.viewState?(.reloadData)
+                  
+              } else {
+                  ApiProvider.shared.getHeroes { result in
+                      switch result {
+                      case let .success(heroes):
+                          self.heroes = heroes
+                          DispatchQueue.main.async {
+                              
+                              self.viewState?(.reloadData)
+                              for hero in heroes {
+                                  CoreDataManager.shared.saveHero(hero: hero)
+                              }
+                          }
+                          
+                      case let .failure(error):
+                          print("Error: \(error)")
+                      }
+                  }
+              }
+          }
    
         
         func heroBy(index: Int) -> Hero? {
