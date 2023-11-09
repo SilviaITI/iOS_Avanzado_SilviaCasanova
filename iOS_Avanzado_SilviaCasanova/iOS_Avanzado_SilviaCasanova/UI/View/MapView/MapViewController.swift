@@ -4,7 +4,6 @@
 //
 //  Created by Silvia Casanova Martinez on 29/10/23.
 //
-
 import UIKit
 import MapKit
 

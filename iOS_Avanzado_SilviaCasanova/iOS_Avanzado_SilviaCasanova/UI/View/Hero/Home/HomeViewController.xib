@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="iOS_Avanzado_SilviaCasanova" customModuleProvider="target">
+            <connections>
+                <outlet property="heroesTableView" destination="i89-aW-BQ2" id="BKZ-4Y-u0D"/>
+                <outlet property="logOut" destination="RLf-XJ-SkO" id="Ksx-I5-4Wx"/>
+                <outlet property="mapItem" destination="zGS-lJ-0DA" id="1oS-fq-KV9"/>
+                <outlet property="searchBar" destination="tfr-CF-DiT" id="bEC-aK-sbW"/>
+                <outlet property="tabBar" destination="YZc-KT-yzC" id="7Tp-hr-e7y"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="i89-aW-BQ2">
+                    <rect key="frame" x="6" y="139" width="381" height="679"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+                <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YZc-KT-yzC">
+                    <rect key="frame" x="0.0" y="769" width="393" height="49"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <items>
+                        <tabBarItem tag="1" image="square.and.arrow.up" catalog="system" id="RLf-XJ-SkO"/>
+                        <tabBarItem tag="2" image="map" catalog="system" id="zGS-lJ-0DA"/>
+                    </items>
+                </tabBar>
+                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfr-CF-DiT">
+                    <rect key="frame" x="0.0" y="95" width="393" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="iTD-4o-ddR"/>
+                    </connections>
+                </searchBar>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="i89-aW-BQ2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="6" id="NE8-de-t0B"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="i89-aW-BQ2" secondAttribute="bottom" id="Qkm-xc-RvR"/>
+                <constraint firstItem="i89-aW-BQ2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="80" id="W05-SO-K4B"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="i89-aW-BQ2" secondAttribute="trailing" constant="6" id="iXR-HD-IJs"/>
+            </constraints>
+            <point key="canvasLocation" x="-153" y="-12"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="map" catalog="system" width="128" height="112"/>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

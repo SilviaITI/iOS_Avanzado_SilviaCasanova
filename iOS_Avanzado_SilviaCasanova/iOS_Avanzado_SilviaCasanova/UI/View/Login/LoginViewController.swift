@@ -38,8 +38,8 @@ class LoginViewController: UIViewController {
     
     private func navigateToHome() {
    
-        let heroesTableViewController = HeroesTableViewController()
-        navigationController?.setViewControllers([heroesTableViewController], animated: true)
+        let homeTableViewController = HomeViewController()
+        navigationController?.setViewControllers([homeTableViewController], animated: true)
         
     }
     func setObservers() {

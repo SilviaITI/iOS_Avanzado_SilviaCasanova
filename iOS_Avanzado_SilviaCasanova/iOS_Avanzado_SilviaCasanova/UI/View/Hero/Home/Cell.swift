@@ -21,9 +21,7 @@ class Cell: UITableViewCell {
  
         override func awakeFromNib() {
         super.awakeFromNib()
-            super.awakeFromNib()
-
-                 container.layer.cornerRadius = 8
+            container.layer.cornerRadius = 8
             container.layer.shadowColor = UIColor.gray.cgColor
             container.layer.shadowOffset = .zero
             container.layer.shadowRadius = 8
@@ -32,7 +30,7 @@ class Cell: UITableViewCell {
             heroImage.layer.cornerRadius = 8
             heroImage.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMinYCorner]
 
-                 selectionStyle = .none
+              selectionStyle = .none
     }
   
     func updateData(with hero: Hero) {

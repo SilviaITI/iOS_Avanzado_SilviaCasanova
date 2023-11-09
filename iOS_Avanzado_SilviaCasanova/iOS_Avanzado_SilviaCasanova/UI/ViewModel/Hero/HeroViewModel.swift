@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HeroesViewModel: HeroesTableViewControllerDelegate {
+class HeroesViewModel: HomeTableViewControllerDelegate {
     var viewState: ((HeroesViewState) -> Void)?
     var heroes: [Hero] = []
     var heroesCount: Int {
@@ -25,6 +25,7 @@ class HeroesViewModel: HeroesTableViewControllerDelegate {
                                      favorite: heroDao.favorite )
                       
                   }
+                
                   self.viewState?(.reloadData)
                   print(savedHeroes)
                  

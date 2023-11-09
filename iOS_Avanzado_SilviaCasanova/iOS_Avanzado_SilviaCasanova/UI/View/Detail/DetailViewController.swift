@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        heroImage.layer.cornerRadius = 20.0
         initViews()
         // Do any additional setup after loading the view.
     }
