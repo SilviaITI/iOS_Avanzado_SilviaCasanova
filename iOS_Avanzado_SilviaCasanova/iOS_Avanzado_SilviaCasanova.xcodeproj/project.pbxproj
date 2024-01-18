@@ -43,6 +43,8 @@
 		619C436C2AED267F00B99427 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 619C436B2AED267F00B99427 /* Kingfisher */; };
 		61A7C4AD2AF40B2A00E44E28 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7C4AC2AF40B2A00E44E28 /* MapViewModel.swift */; };
 		61BC9DBF2AEE7E1400B363C4 /* LocationsAnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BC9DBE2AEE7E1400B363C4 /* LocationsAnotations.swift */; };
+		61EC85EB2B24CBB400584FF6 /* KeyChainTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC85EA2B24CBB400584FF6 /* KeyChainTest.swift */; };
+		61EC85EE2B24CCDE00584FF6 /* ModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EC85ED2B24CCDE00584FF6 /* ModelTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +103,8 @@
 		619C43672AED250400B99427 /* Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		61A7C4AC2AF40B2A00E44E28 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		61BC9DBE2AEE7E1400B363C4 /* LocationsAnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsAnotations.swift; sourceTree = "<group>"; };
+		61EC85EA2B24CBB400584FF6 /* KeyChainTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainTest.swift; sourceTree = "<group>"; };
+		61EC85ED2B24CCDE00584FF6 /* ModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +209,7 @@
 		61854D9E2AEC37DC00C57E57 /* iOS_Avanzado_SilviaCasanovaTests */ = {
 			isa = PBXGroup;
 			children = (
+				61EC85EC2B24CCBA00584FF6 /* Data_Test */,
 				61854D9F2AEC37DC00C57E57 /* iOS_Avanzado_SilviaCasanovaTests.swift */,
 			);
 			path = iOS_Avanzado_SilviaCasanovaTests;
@@ -398,6 +403,15 @@
 			path = MapView;
 			sourceTree = "<group>";
 		};
+		61EC85EC2B24CCBA00584FF6 /* Data_Test */ = {
+			isa = PBXGroup;
+			children = (
+				61EC85EA2B24CBB400584FF6 /* KeyChainTest.swift */,
+				61EC85ED2B24CCDE00584FF6 /* ModelTest.swift */,
+			);
+			path = Data_Test;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -572,7 +586,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61EC85EE2B24CCDE00584FF6 /* ModelTest.swift in Sources */,
 				61854DA02AEC37DC00C57E57 /* iOS_Avanzado_SilviaCasanovaTests.swift in Sources */,
+				61EC85EB2B24CBB400584FF6 /* KeyChainTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

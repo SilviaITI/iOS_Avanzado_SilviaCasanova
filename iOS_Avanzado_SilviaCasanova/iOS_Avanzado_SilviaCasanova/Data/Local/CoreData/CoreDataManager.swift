@@ -14,15 +14,15 @@ class CoreDataManager {
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     }
 
-
+    // saves heroes
     func saveHero(hero: Hero) {
         guard let moc = moc,
-              let heroEntity = NSEntityDescription.entity(forEntityName: HeroDao.entityNameHero, in: moc) else {
+              let _ = NSEntityDescription.entity(forEntityName: HeroDao.entityNameHero, in: moc) else {
             return
         }
         
-        //let newHero = HeroDao(entity: heroEntity, insertInto: moc)
-        // Configura las propiedades de 'newHero' con los datos del héroe que quieras guardar
+     
+        // Configures properties from a 'newHero' with data from hero
         do {
             try moc.save()
             print("Se han guardado los héroes")
@@ -32,6 +32,8 @@ class CoreDataManager {
         
         
     }
+    
+    // load saved heroes
     func loadHero() -> [HeroDao] {
         guard let moc = moc else {
             return []
@@ -49,6 +51,7 @@ class CoreDataManager {
         }
     }
 
+    // delete heroes from CoreData
     func deleteAll() {
         let fetchHero = NSFetchRequest<HeroDao>(entityName: HeroDao.entityNameHero)
         guard let moc,
